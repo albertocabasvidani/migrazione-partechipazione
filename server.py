@@ -722,9 +722,10 @@ def main():
     else:
         print("ℹ️  OpenAI non configurato (opzionale)")
     
-    # Avvia server
-    port = 8000
-    server = HTTPServer(('localhost', port), CSVImportHandler)
+    # Avvia server - usa PORT da ambiente per Render
+    port = int(os.environ.get('PORT', 8000))
+    # Bind a 0.0.0.0 per Render (non localhost)
+    server = HTTPServer(('0.0.0.0', port), CSVImportHandler)
     
     print('=' * 60)
     print('🚀 CSV Import Server - VERSIONE FINALE')
