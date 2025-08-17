@@ -1,0 +1,42 @@
+{
+  "name": "Migrazione Partechipazione",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Applicazione Web",
+      "onAutoForward": "openBrowser"
+    }
+  },
+
+  "postCreateCommand": "pip install --upgrade pip && if [ -f requirements.txt ]; then pip install -r requirements.txt; fi && if [ -f .env.example ] && [ ! -f .env ]; then cp .env.example .env && echo '⚠️  IMPORTANTE: Configura il file .env con le tue credenziali Notion!'; fi",
+  
+  "postStartCommand": "echo '🚀 Codespace pronto! Esegui: python3 server.py'",
+  
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "files.exclude": {
+          "**/__pycache__": true,
+          "**/*.pyc": true
+        }
+      }
+    }
+  },
+
+  "remoteEnv": {
+    "PYTHONUNBUFFERED": "1"
+  },
+
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  }
+}

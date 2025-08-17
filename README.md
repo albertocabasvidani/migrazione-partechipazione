@@ -2,6 +2,14 @@
 
 Strumento per l'importazione massiva di contatti CSV in un database Notion, con correzione automatica dei nomi dei comuni tramite AI.
 
+## 🚀 Avvio Rapido
+
+### Opzione 1: GitHub Codespaces (Consigliato)
+**[📖 Guida completa Codespaces](./CODESPACES.md)** - Usa l'app direttamente nel browser senza installare nulla
+
+### Opzione 2: Esecuzione Locale
+Segui le istruzioni di installazione qui sotto
+
 ## Funzionalità
 
 - 📊 Importazione CSV con mapping personalizzato dei campi
