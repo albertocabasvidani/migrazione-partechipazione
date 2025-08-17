@@ -1,2 +1,3 @@
-# Il progetto usa solo librerie Python standard
-# Non sono necessarie dipendenze esterne
+# Dipendenze opzionali
+# python-dotenv è consigliato ma non obbligatorio (il server funziona anche senza)
+python-dotenv==1.0.0

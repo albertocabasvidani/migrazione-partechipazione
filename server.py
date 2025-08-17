@@ -18,6 +18,20 @@ import traceback
 from datetime import datetime
 import os
 
+# Prova a caricare le variabili dal file .env se esiste
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    # Se python-dotenv non è installato, prova a leggere manualmente il file .env
+    if os.path.exists('.env'):
+        with open('.env', 'r') as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith('#') and '=' in line:
+                    key, value = line.split('=', 1)
+                    os.environ[key.strip()] = value.strip()
+
 # Configurazione - Leggi da variabili di ambiente
 NOTION_TOKEN = os.environ.get("NOTION_TOKEN")
 CONTATTI_DB_ID = os.environ.get("CONTATTI_DB_ID")
